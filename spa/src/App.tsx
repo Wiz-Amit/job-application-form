@@ -1,8 +1,11 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import JobApplication from "./pages/job-application";
 
 function App() {
-  return <div className="App">Hello World</div>;
+  return (
+    <div className="App">
+      <JobApplication />
+    </div>
+  );
 }
 
 export default App;
