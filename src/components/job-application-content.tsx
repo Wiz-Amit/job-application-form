@@ -16,7 +16,16 @@ function JobApplicationContent() {
         </div>
 
         <Flex className="absolute bottom-0 left-0 w-full justify-between gap-5 p-10 text-white">
-          <div className="copyright">Copyright©2022 WizAmit</div>
+          <div className="copyright">
+            Copyright © 2022 &nbsp;
+            <a
+              href="https://www.wizamit.com"
+              target="_blank"
+              className="font-bold"
+            >
+              WizAmit
+            </a>
+          </div>
 
           <SocialLinks />
         </Flex>

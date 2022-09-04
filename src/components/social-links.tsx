@@ -19,6 +19,8 @@ function SocialLinks(props) {
         <li key={i}>
           <a
             href={socialLink.link}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-2 transition-opacity hover:opacity-60"
           >
             {socialLink.icon}
