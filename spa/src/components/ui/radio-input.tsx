@@ -1,9 +1,12 @@
+import { useFormikContext } from "formik";
+
 type RadioInputProps = {
   className?: string;
   name: string;
   type?: React.HTMLInputTypeAttribute | undefined;
   placeholder?: string;
   label?: string;
+  value?: string;
   bordered?: boolean;
   children?: JSX.Element | JSX.Element[];
 } & React.InputHTMLAttributes<HTMLInputElement>;
@@ -14,9 +17,13 @@ function RadioInput({
   type = "text",
   placeholder,
   label,
+  value,
   bordered,
   ...props
 }: RadioInputProps) {
+  const { values } = useFormikContext();
+  value = value ? value : label;
+
   return (
     <label
       className={`label cursor-pointer justify-start gap-2 ${
@@ -29,6 +36,8 @@ function RadioInput({
         name={name}
         placeholder={placeholder ? placeholder : name?.toUpperCase()}
         className={`radio checked:bg-primary ${className}`}
+        value={value}
+        checked={values?.[name] == value}
         {...props}
       />
       <span className="label-text">{label}</span>

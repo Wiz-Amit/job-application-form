@@ -15,8 +15,8 @@ const socialLinks = [
 function SocialLinks(props) {
   return (
     <ul className="social-links flex flex-wrap gap-3">
-      {socialLinks.map((socialLink) => (
-        <li>
+      {socialLinks.map((socialLink, i) => (
+        <li key={i}>
           <a
             href={socialLink.link}
             className="inline-block px-2 transition-opacity hover:opacity-60"
