@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import * as Yup from "yup";
 import Button from "./ui/button";
 import Checkbox from "./ui/checkbox";
@@ -30,10 +30,10 @@ const JobApplicationSchema = Yup.object().shape({
     .required(requiredMessage),
 });
 
-function JobApplicationForm() {
+function JobApplicationForm({ handleSuccess }) {
   const [step, setStep] = useState(1);
 
-  const onSubmit = (values, { setSubmitting }) => {
+  const onSubmit = useCallback((values, { setSubmitting }) => {
     const { terms, ...data } = values;
     console.log(data);
 
@@ -48,8 +48,9 @@ function JobApplicationForm() {
       .catch((error) => {
         console.log({ error });
         setSubmitting(false);
+        handleSuccess();
       });
-  };
+  }, []);
 
   return (
     <Formik
