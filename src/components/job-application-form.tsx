@@ -30,6 +30,8 @@ const JobApplicationSchema = Yup.object().shape({
     .required(requiredMessage),
 });
 
+const api = import.meta.env.VITE_API;
+
 function JobApplicationForm({ handleSuccess }) {
   const [step, setStep] = useState(1);
 
@@ -37,18 +39,20 @@ function JobApplicationForm({ handleSuccess }) {
     const { terms, ...data } = values;
     console.log(data);
 
-    fetch("/api/job-application", {
+    fetch(`${api}/create.php`, {
       method: "POST",
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((res) => {
         setSubmitting(false);
+        if (res.success) {
+          handleSuccess();
+        }
       })
       .catch((error) => {
         console.log({ error });
         setSubmitting(false);
-        handleSuccess();
       });
   }, []);
 
