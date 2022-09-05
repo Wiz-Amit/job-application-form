@@ -44,7 +44,7 @@ function FormControl({
         />
       )}
 
-      <span className="text-sm text-error">
+      <span className="mt-1 text-sm text-error">
         {errors && errors?.[name] && touched?.[name] && errors?.[name]}
       </span>
     </div>

@@ -1,5 +1,5 @@
-import SocialLinks from "./social-links";
-import Flex from "./ui/flex";
+import SocialLinks from "../social-links";
+import Flex from "../ui/flex";
 
 function JobApplicationContent() {
   return (

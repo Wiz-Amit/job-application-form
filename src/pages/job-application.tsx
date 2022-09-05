@@ -1,7 +1,7 @@
 import { useState } from "react";
-import JobApplicationCompleted from "../components/job-application-completed";
-import JobApplicationContent from "../components/job-application-content";
 import JobApplicationForm from "../components/job-application-form";
+import JobApplicationContent from "../components/job-application/conent";
+import JobApplicationCompleted from "../components/job-application/success-screen";
 
 function JobApplication() {
   const [completed, setCompleted] = useState(false);
